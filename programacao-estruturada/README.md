@@ -93,14 +93,24 @@ flowchart LR
 A(Código fonte) -- Compilação --> B(Bytecode) -- Interpretação (VM) --> C(Execução)
 ```
 
-### Estrutura Sequencial
-> São algoritmos que executam em sequência, de cima para baixo.
-
 ### Variável
 > É um espaço em memória que armazena dados durante a execução do programa.
+
+### Estrutura Sequencial
+> São algoritmos que executam em sequência, de cima para baixo.
 
 ### Estrutura Condicional Simples
 > Uma estrutura de controle simples definir que um bloco de instruções será executado se uma determinada condição for satisfeita. Essa condição é representada por expressões lógicas.
 
 ### Estrutura Condicional Composta
 > Uma estrutura condicional composta define que um bloco de instruções será executado se determinada condição for satisfeita, mas caso essa condição seja falsa, é executado um outro bloco de instruções diferente.
+
+### Estrutura Repetitiva
+#### Enquanto
+> Estrutura de controle que repete um bloco de comandos enquanto uma condição for verdadeira. Usada quando não se sabe a quantidade de repetições que será realizada.
+
+#### Para
+> Estrutura de controle que repete um bloco de comandos para um certo intervalo de valores. Usada quando sabe previamente o número de repetições que será realizada.
+
+#### Repita-Até
+> Estrutura de controle onde o bloco de comandos será executado pelo menos uma vez, pois a condição é verificada no final.

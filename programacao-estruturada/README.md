@@ -1,5 +1,11 @@
 ## Programação Estruturada
 
+A programação estruturada orienta os programadores para a criação de estruturas simples (módulos) em seus programas, usando as sub-rotinas e funções.
+
+### Lógica de Programação
+
+Refere-se à capacidade de desenvolver algoritmos e estruturar instruções de forma lógica e sequencial para resolver problemas computacionais.
+
 A Lógica de Programação é aplicada em estrutura de dados, programação orientada a objetos, banco de dados e análise e design de sistemas.
 
 ### Algoritmo
@@ -45,7 +51,9 @@ A(Entrada) --> B(Processamento) --> C(Saída)
 
 ### Linguagem de programação
 
-> É um conjunto de regras léxicas (ortográficas) e sintáticas (gramática) para se escrever programas.
+> É um conjunto de regras sintáticas e semânticas para se escrever programas que permitem a comunicação entre um ser humano e um computador.
+
+A sintaxe se concentra na estrutura e na organização do código, enquanto a semântica lida com o significado e o comportamento das instruções.
 
 ### IDE (Ambiente Integrado de Desenvolvimento)
 

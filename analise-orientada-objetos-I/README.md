@@ -39,13 +39,50 @@ Pré e Pós-Condições são marcos bem definidos de cada atividade e que devem 
 
 ## Modelos Prescritivos de Processos
 
+Existem vários tipos de modelos que tem como objetivo determinar o arcabouço dos processos com tarefas explícitas.
+
+Cada modelo prescreve um fluxo de trabalho, a maneira como os elementos se inter-relacionam.
+
 ### Cascata
+
+- Também chamado de ciclo de vida clássico ou linear
+- Associado às metodologias da programação estruturada
+- Inspirado na engenharia de processos industriais
+- Adequado quando os requisitos são bem definidos, como em aperfeiçoamentos de um sistema existente
+
+![Modelo em Cascata](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjSoqqzio1QPPJSAxUvqmq29ObMIus8TJZ8NpupgjTo6wsQReBjYPiAcHhHxbCZ4QHjJCw-mCJKfgxm691WPHSvDQJeyjT4ohb4vayJD4ZAGDSl1xtkol8vK6MD1w7Qb_bjoPy1skRKPe0/s1600/Fases+do+modelo+de+Desenvolvimento+Cl%C3%A1ssico.png)
 
 ### Prototipagem
 
+- O cliente define um conjunto de objetivos gerais para o software
+- Sem detalhamento dos requisitos de entrada, processamento e saída
+- Indicado quando há necessidade de solução de software, mas não é possível detalhar os requisitos, onde o protótipo servirá justamente para esse detalhamento
+
+![Modelo de Prototipagem](../media/etapas_prototipagem.png)
+
+### Evolucionário Incremental
+
+- Combina Cascata com Prototipagem
+- O primeiro incremento é chamado de núcleo do produto
+- Repete parte do processo à medida que os requisitos do sistema evoluem
+- Cada ciclo desenvolve uma versão mais completa
+
 ### Modelo RAD (Rapid Application Development)
 
-### Evolucionários
+- Incremental, com ciclo curto
+- Adaptação do modelo sequencial linear, no qual a rapidez é obtida com componentes
+- Equipes trabalham em paralelo em diferentes funções do sistema
 
-- Incremental
-- Espiral
+Fases:
+
+- Modelagem do negócio
+- Modelagem dos dados
+- Modelagem do processo
+- Geração da aplicação
+- Teste e entrega
+
+### Evolucionário Espiral
+
+- O processo é representado como uma espiral, onde cada loop representa uma fase do processo
+- Cada ciclo produz algo a ser avaliado, não necessariamente código
+- Gerência de riscos, onde ao final de cada loop é verificado se é possível continuar

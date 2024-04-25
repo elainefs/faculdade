@@ -131,6 +131,8 @@ A memória RAM de um computador é uma sequência de bytes, a posição que é o
 
 Cada variável de um programa ocupa um certo número de bytes consecutivos na memória do computador.
 
+A atribuição de endereços depende do SO, pode ser crescente ou decrescente.
+
 | Tipo   | Bytes   |
 | ------ | ------- |
 | char   | 1 byte  |
@@ -191,8 +193,7 @@ Cada tipo de variável possui um código de máscara específico.
 | long   | %li            |
 | string | %s             |
 
-> É possível definir a quantidade de casas decimais usando a máscara.
-> Por exemplo, `%.2f`, define que o número do tipo float terá duas casas decimais.
+> É possível definir a quantidade de casas decimais usando a máscara. Por exemplo, `%.2f`, define que o número do tipo float terá duas casas decimais.
 
 O escape é representado pelo símbolo \ (barra invertida) seguindo de um caractere.
 
@@ -219,7 +220,7 @@ int main(){
 }
 ```
 
-Usa-se o `scanf()` para entrada de dados. Nessa função é definido o formato do dado, através da máscara de formatação, e a variável na qual esse dado será armazenado, informando a variável precedida pelo caractere `&`.
+Usa-se o `scanf()` para entrada de dados. Nessa função é definido o formato do dado, através da máscara de formatação, e a variável na qual esse dado será armazenado precedida pelo caractere `&`.
 
 > `&` Operador unário que significa "endereço de..."
 >
@@ -267,6 +268,38 @@ int main(){
   }
 }
 ```
+
+### Vetores do tipo String
+
+Usa-se a função `fgets()` para ler entradas de dados do tipo String. A leitura é interrompida ao se encontrar a flag `\0` e não no espaço em branco como no `scanf()`.
+
+```c
+#include <stdio.h>
+
+int main(){
+  char nome[8];
+
+  fgets(nome, 8, stdin); // lê 7 caracteres
+  printf("%s \n", nome);
+
+  return 0;
+}
+```
+
+O tipo String nao pode ser comparado com outro usando os operadores relacionais, é necessário comparar posição por posição da String, por ser um vetor de caracteres, é possível usar um laço de repetição para isso.
+
+Para manipular strings usa-se a diretiva `string.h`, abaixo estão algumas das suas funções.
+
+| Função                         | Ação                                     |
+| ------------------------------ | ---------------------------------------- |
+| `strcpy(str1_dest, str2_orig)` | Copia string da origem para o destino    |
+| `strcat(str1, str2)`           | Concatena as strings                     |
+| `strcmp(str1, str2)`           | Compara strings. Retorna 0 (=) ou 1 (!=) |
+| `strlen(str1)`                 | Calcula o tamanho da string              |
+| `strupr(str1)`                 | Converte a string para maiúscula         |
+| `strlwr(str1)`                 | Converte a string para minúscula         |
+
+> strupr e strlwr não funcionam no Linux
 
 ### Operadores
 
@@ -454,3 +487,39 @@ int main(){
 O `break` serve para interromper a execução de um loop ou qualquer comando.
 
 Já a palavra `continue` permite pular uma interação do loop e continuar com a próxima interação.
+
+### Matriz
+
+A matriz é um conjunto de valores bidimensional ou ndimensionais. Ela é uma associação de vetores.
+
+Sua sintaxe é:
+
+```
+tipo nome [qtd.linhas][qtd.colunas];
+```
+
+Formas de atribuir valores a uma matriz:
+
+```c
+// atribuição em sequência
+int matriz[2][3] = {1, 2, 3, 4, 5, 6};
+```
+
+```c
+// atribuição separada
+int matriz[2][3] = {{1, 2, 3}, {4, 5, 6}};
+```
+
+O compilador consegue calcular automaticamente as linhas de uma matriz, mas não as colunas.
+
+```c
+// Compilador calcula 5 linhas e 2 colunas
+int a [][2] = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
+```
+
+Quando a quantidade de linhas e colunas não são definidos essa matriz é chamada de não-dimensional,
+
+```c
+// Compilado calcula automaticamente 10 posições
+int i[] = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
+```

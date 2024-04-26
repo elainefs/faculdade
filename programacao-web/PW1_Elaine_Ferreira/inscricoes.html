@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Máxima Eventos</title>
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/estilos.css">
+</head>
+
+<body>
+    <header class="container">
+        <h1><a href="index.html" class="logo">Máxima Eventos</a></h1>
+
+        <nav class="menu-opcoes">
+            <ul class="navegacao-itens">
+                <li><a href="index.html">Página Inical</a></li>
+                <li><a href="inscricoes.html">Página de Inscrições</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <div class="container destaque">
+            <section class="busca">
+                <h2>Busca</h2>
+                <form action="https://google.com.br/search" id="form-busca">
+                    <input type="search" name="q" id="q">
+                    <input type="image" src="img/busca.png" class="lupa">
+                </form>
+            </section>
+            <section class="menu-eventos">
+                <h2>Eventos</h2>
+                <nav>
+                    <ul class="tipos-eventos">
+                        <li><a href="#">Shows</a></li>
+                        <li><a href="#">Festas</a></li>
+                        <li><a href="#">Exposições</a></li>
+                        <li><a href="#">Conferências</a></li>
+                        <li><a href="#">Esportes</a></li>
+                        <li><a href="#">Teatro</a></li>
+                        <li><a href="#">Outros</a></li>
+                    </ul>
+                </nav>
+            </section>
+            <a href="evento.html"><img src="img/conferencias.jpeg" alt="Eventos" class="destaque img"></a>
+        </div>
+        <h2>Compra de Ingresso</h2>
+
+        <form action="#" id="form-compra">
+            <div>
+                <label for="nome">Nome Completo:</label>
+                <input type="text" name="nome" id="nome" placeholder="Digite seu nome">
+            </div>
+            <div>
+                <label for="telefone">Telefone:</label>
+                <input type="tel" name="telefone" id="telefone" placeholder="Digite seu telefone">
+            </div>
+            <div>
+                <label for="email">E-mail:</label>
+                <input type="email" name="email" id="email" placeholder="Digite seu e-mail">
+            </div>
+            <div>
+                <label for="endereco">Endereco:</label>
+                <input type="text" name="endereco" id="endereco" placeholder="Digite seu endereço">
+            </div>
+            <div>
+                <label for="itens-compra">Itens Selecionados para compra: </label>
+                <input type="text" readonly placeholder="2 ingressos para Flisol">
+            </div>
+            <div>
+                <label for="pagamento">Forma de Pagamento:</label>
+                <select name="pagamento" id="pagamento">
+                    <option value="#">Selecionar...</option>
+                    <option value="pix">Pix</option>
+                    <option value="cartao-credito">Cartão de Crédito</option>
+                    <option value="cartao-debito">Cartão de Débito</option>
+                </select>
+            </div>
+
+            <div>
+                <input type="button" value="Finalizar Compra">
+            </div>
+
+        </form>
+
+    </main>
+    <footer>
+        <ul>
+            <li><a href="#">Máxima Eventos</a></li>
+            <li><a href="#">Desenvolvido por Elaine Ferreira</a></li>
+        </ul>
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+
+</html>

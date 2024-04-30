@@ -517,7 +517,7 @@ O compilador consegue calcular automaticamente as linhas de uma matriz, mas não
 int a [][2] = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
 ```
 
-Quando a quantidade de linhas e colunas não são definidos essa matriz é chamada de não-dimensional,
+Quando a quantidade de linhas ou de linhas e colunas não são definidos, essa matriz é chamada de não-dimensional.
 
 ```c
 // Compilado calcula automaticamente 10 posições

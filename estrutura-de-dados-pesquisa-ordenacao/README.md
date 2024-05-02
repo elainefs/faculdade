@@ -115,13 +115,9 @@ float n1; // Recebe valores com ponto flutuante
 char nome[10]; // Recebe uma lista de caracteres
 ```
 
-Outros tipos de tipos de variáveis são: bool, double e long.
-
 > O tipo `char` é definido sempre usando aspas simples.
 >
 > É necessário sempre definir um `char` com mais espaço do que o necessário, pois o último valor armazenado é o terminador de string `\0`.
-
-### Modificadores
 
 Os modificadores de tipo do C são: signed, unsigned, long e short.
 
@@ -156,6 +152,129 @@ p = &v[0];
 
 O nome do vetor aponta para o endereço do primeiro elemento do vetor.
 
+Para acessar o endereço de memória de uma variável é possível usar o formatador `%p` para imprimir o endereço:
+
+```c
+int numero = 10;
+printf("Endereço de memória da variável número é: %p\n", &numero);
+```
+
+Também é possível salvar o endereço de memória dentro de um ponteiro:
+
+```c
+int numero = 10;
+int *endereco = &numero;
+printf("Endereço de memória da variável número é: %p\n", endereco);
+```
+
+### Alocação dinâmica de memória
+
+A alocação dinâmica permite alocar e desalocar memória para novos arrays quando o programa está sendo executado e não apenas quando se está escrevendo o programa.
+
+A alocação dinâmica só pode ser feita através de ponteiros.
+
+O gerenciamento cuidadoso de alocação e liberação deve ser feito para evitar vazamento de memória ou corrupção de dados.
+
+A memória RAM é dividida em várias áreas:
+
+```mermaid
+flowchart TB
+
+A(Stack) --- B(Heap) --- C(Variáveis Globais e estáticas) --- D(Código do Programa)
+```
+
+A **Stack** é uma região usada para armazenar informações temporárias relacionadas a execução de funções, endereços de retorno, parâmetros de funções e variáveis locais.
+
+A **Heap** é a região mais dinâmica e flexível da memória, usada para alocar dados dinamicamente durante a execução do programa, como objetos, arrays e estruturas de dados.
+
+A região das **variáveis globais e estáticas** são inicializadas antes da execução do programa e mantêm seu valor durante toda a execução.
+
+O **código do programa** ou código executável é a região que contém instruções de máquina que compõem o programa em execução, geralmente é uma área apenas de leitura, visto que o código do programa não deve ser alterado durante a execução.
+
+O processo de alocação dinâmica acontece na memória Heap.
+
+#### Funções de gerenciamento de memória
+
+As funções de gerenciamento de memória fazem parte da biblioteca `stdlib`. Adicionar sua diretiva no início do programa para usa-lá.
+
+`malloc()`
+
+Função usada para alocar espaço em um bloco de bytes consecutivos, sua sintaxe é:
+
+```c
+int *v; // define o ponteiro
+v = (int*) malloc(quantidadePosicoes * numeroBytes);
+```
+
+> (int\*) é opcional
+>
+> Os bytes alocados são inicializados sem conteúdo, podendo conter lixo.
+
+Como a alocação dinâmica só funciona através de ponteiros é necessário primeiro definir um.
+
+A função `malloc` recebe a quantidade de posições multiplicado pela quantidade de bytes de acordo com o tipo do ponteiro, por exemplo, se é um `int`, será 4 bytes, se fosse um `char` seria 1 byte.
+
+```c
+int *v;
+v = malloc(10 * 4);
+```
+
+Para definir dinamicamente o número de bytes de um tipo de dados é possível usar a função `sizeof()`.
+
+```c
+int *v;
+v = malloc(10 * sizeof(int)); // aloca espaço para 10 inteiros
+```
+
+`calloc`
+
+Similar a `malloc()`, mas inicializa todos os bytes alocados com zero, o que pode ser útil quando a memória deve ser inicializada.
+
+```c
+int *v; // define o ponteiro
+v = (int*) calloc(quantidadePosicoes, numeroBytes);
+```
+
+Diferente da `malloc` os valores são separados por vírgula e não multiplicados.
+
+```c
+int *v; // define o ponteiro
+v = (int*) calloc(10, sizeof(int));
+```
+
+`free`
+
+Sempre que um programa termina a memória é liberada, mas se for um programa grande é possível fazer a liberação da memória Heap de forma manual através da função `free()`, passando como parâmetro o ponteiro da memória a ser liberada. Além disso, é uma boa prática atribuir NULL ao ponteiro liberado.
+
+```c
+int *v; // define o ponteiro
+v = (int*) calloc(10, sizeof(int));
+free(v);
+v = NULL;
+```
+
+`realloc`
+
+Está função é usada para mudar o tamanho de um bloco de memória previamente alocado.
+
+Sua sintaxe é:
+
+```c
+int *v; // define o ponteiro
+v = (int*) realloc(vetor, quantidadePosicoes * numeroBytes);
+```
+
+Como parâmetros da função são passados o ponteiro que eu quero alterar e a quantidade de posições e número de bytes.
+
+```c
+int *v; // define o ponteiro
+v = (int*) realloc(v, 10 * sizeof(int));
+```
+
+Esquema da Alocação Dinâmica da Memória
+
+![Alocação dinâmica da memória](../media/alocacao_dinamica_memoria.jpeg)
+
 ### Void
 
 - Palavra reservada que pode ser usada para:
@@ -184,14 +303,15 @@ Usa-se o `printf()` para saída de dados. Dentro dessa função é possível usa
 
 Cada tipo de variável possui um código de máscara específico.
 
-| Tipo   | Máscara        |
-| ------ | -------------- |
-| char   | %c             |
-| int    | %d ou %i ou %u |
-| float  | %f ou %F       |
-| double | %lf            |
-| long   | %li            |
-| string | %s             |
+| Tipo    | Máscara        |
+| ------- | -------------- |
+| char    | %c             |
+| int     | %d ou %i ou %u |
+| float   | %f ou %F       |
+| double  | %lf            |
+| long    | %li            |
+| string  | %s             |
+| pointer | %p             |
 
 > É possível definir a quantidade de casas decimais usando a máscara. Por exemplo, `%.2f`, define que o número do tipo float terá duas casas decimais.
 

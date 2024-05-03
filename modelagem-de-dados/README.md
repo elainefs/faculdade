@@ -148,16 +148,71 @@ Tipos de relacionamentos:
   - Uma ocorrência na entidade A está associada a qualquer número de ocorrências da entidade B, e uma ocorrência em B está associada a qualquer número de ocorrência na entidade A.
   - Todo relacionamento n:n deve ser desmembrado em dois relacionamento 1:n, pois banco de dados relacional não permite esse tipo de cardinalidade. Para isso deve ser criado uma Entidade em comum.
 
+## Tipos de atributos
+
+**Simples**: atributos atômicos, indivisíveis.
+
+**Compostos**: atributos que podem ser divididos em partes menores, ou subpartes, com significados independentes. Ex: endereço pode ser dividido em rua, cidade, etc.
+
+**Monovalorados**: atributos que possuem apenas um valor para uma entidade em particular. Ex: idade é um atributo monovalorado para uma entidade pessoa.
+
+**Multivalorado**: atributos que possuem um ou mais valores. Ex: idioma pode conter vários valores.
+
+**Derivado**: atributos que podem ter uma relação entre si. Ex: o valor da idade de uma pessoa é determinado através da sua data de nascimento.
+
 ## Normalização
 
 A normalização dos dados é uma série de dados que permite armazenar os dados de forma consistente e eficiente, de forma a reduzir a redundância e a inconsistência.
 
-Edgar Frank Codd definiu três das regras usadas para normalização de dados:
+Edgar Frank Codd definiu três das regras usadas para normalização de dados, mas existem outras que geralmente são aceitas também.
 
-- Primeira Forma Normal (1FN)
-  - Os atributos precisam ser atômicos,simples e indivisíveis.
-  - Passos:
-    - 1ª dividir as tabelas
-    - 2ª identificar as chaves
-- Segunda Forma Normal (2FN)
-- Terceira Forma Normal (3FN)
+### Primeira Forma Normal (1FN)
+
+Os atributos precisam ser atômicos,simples e indivisíveis.
+
+- Passos:
+  - 1ª dividir a tabela maior em tabelas menores
+  - 2ª identificar as chaves primárias de cada nova tabela
+- A 1FN não permite atributos multivalorados, atributos compostos e suas combinações.
+
+### Segunda Forma Normal (2FN)
+
+Deve estar na 1FN e todos os atributos não-chave devem depender plenamente da chave primária.
+
+- Toda tabela 1FN que possui uma chave primária com um único atributo, já se encontra na 2FN
+- Tabelas que possuem chave primária composta e pelo menos um atributo não-chave com dependência funcional devem ser passadas para 2FN
+- Passos:
+  - Os atributos que dependem apenas de uma parte da chave primária devem ser movidos para outra tabela.
+  - 1ª identificar os atributos que dependem apenas de uma parte da chave primária composta
+  - 2ª criar uma nova tabela com o atributo dependente e a chave primária do qual ele depende
+
+#### Dependência Funcional
+
+A **dependência funcional** (DF) é uma associação que se estabelece entre dois ou mais atributos em uma relação.
+
+A notação da DF é: **A -> B** (a seta parte de quem identifica), que significa que em uma relação R, B é funcionalmente dependente de A se cada um dos valores de A tem associado a si um e um só valor de B.
+
+Se conhecermos o valor de A então podemos encontrar o valor de B associado a ele, pois B depende de A.
+
+> Todos os atributos que não fazem parte da chave primária de uma relação são funcionalmente dependente dela.
+
+A **dependência funcional completa (plena)** ocorre quando um atributo depende de toda a chave primária.
+
+A **dependência funcional parcial (não plena)** ocorre quando um atributo depende de parte da chave primária composta.
+
+### Terceira Forma Normal (3FN)
+
+Deve estar na 2FN e nenhum atributo não-chave é transitivamente dependente da chave primária.
+
+- Toda tabela na 2FN que possui menos de dois atributos não-chave encontra-se na 3FN
+- Tabelas com dois ou mais atributos não-chave devem ser passadas para a 3FN
+- Passos:
+  - 1ª criar uma nova tabela com a chave primária da tabela em questão
+  - 2ª se o atributo não-chave depender apenas da chave primária, adicionar ele a nova tabela
+  - 3ª se o atributo não-chave tiver dependência transitiva, ou seja, depender de outro atributo não-chave, copiar o atributo dependente para uma nova tabela onde a chave primária dessa tabela será o atributo do qual há uma dependência
+
+#### Dependência Transitiva
+
+A **dependência transitiva ou indireta** ocorre quando um atributo, além de depender da chave primária, depende de outro atributo ou conjunto de atributos da tabela.
+
+Ocorre quando Y depende de X, e Z depende de Y, logo, Z também depende de X. A sua notação é: **X -> Y -> Z**.

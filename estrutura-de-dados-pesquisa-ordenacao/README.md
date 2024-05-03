@@ -47,241 +47,47 @@ Principais características:
 ### Estrutura básica de um programa em C
 
 ```
-Diretivas para pré-processadores
-Declaração de constantes
+diretivas para pré-processadores
 
 tipo funcao1(){}
 
 tipo main(){}
 ```
 
-### Diretivas
+### Tipagem de dados
 
-As **diretivas** são instruções, geralmente, definidas nas primeiras linhas do código fonte que tem o objetivo de modificar o texto fonte antes mesmo da sua compilação. Elas não são compiladas, sendo direcionadas ao pré-processador, que é executado pelo compilador antes da compilação propriamente dita.
+Por ser uma linguagem fortemente tipada, é necessário definir os tipos das variáveis, além disso, cada tipo de dado ocupa um determinado número de bytes na memória.
 
-A diretiva `#include` permite incluir uma biblioteca.
+| Tipo   | Tamanho          | Descrição                          |
+| ------ | ---------------- | ---------------------------------- |
+| char   | 1 byte (8bits)   | Recebe um caractere                |
+| int    | 4 bytes (32bits) | Recebe valores inteiros            |
+| float  | 4 bytes (32bits) | Recebe valores com ponto flutuante |
+| double | 8 bytes (64bits) | Recebe valores com ponto flutuante |
+| bool   | 1 byte (8bits)   | Recebe true ou false               |
 
-Exemplos:
-
-| Diretiva            | Função                     |
-| ------------------- | -------------------------- |
-| #include <stdio.h>  | Funções de entrada e saída |
-| #include <stdlib.h> | Funções padrão             |
-| #include <math.h>   | Funções matemáticas        |
-| #include <string.h> | Funções de texto           |
-| #include <locale.h> | Funções de acentuação      |
-
-A biblioteca `<stdio.h>` é uma das principais a serem incluídas no código fonte.
-
-Ela da acesso as funções `scanf()` (input) que lê dados e armazena em variáveis especificadas e `printf()` (output) que escreve dados formatados.
-
-A biblioteca `<locale.h>` permite acentuar letras e deve ser setada na função `main`.
+> O valor do tipo `char` é definido sempre usando aspas simples.
 
 ```c
-#include <locale.h>
-
-int main(){
-  setlocale(LC_ALL, "Portuguese");
-}
+char letra = 'C'; // Recebe um caractere
+int qtde = 10; // Recebe valores inteiros
+float n1 = 1.0; // Recebe valores com ponto flutuante
+double dou = 0.123; // Recebe valores de ponto flutuante
+bool passou = true; // Recebe true ou false
 ```
 
-A biblioteca `<stdlib.h>` contém funções responsáveis pela manipulação da alocação e desalocação de memória.
-
-```c
-#include <stdlib.h>
-
-int main(){
-  printf("Olá, mundo");
-  system("PAUSE"); // Espera o usuário pressionar alguma tecla para continua a execução
-}
-```
-
-### Variáveis e Constantes
-
-No topo dos arquivos do programa é possível definir constantes usando a palavras reservada `#define` seguida do nome da variável e do seu valor.
-
-```c
-#include <stdio.h>
-#define PI 3.1415 // Constante
-```
-
-> Se não inicializarmos as variáveis, elas podem ter lixos de memória de outras inicializações.
-
-Por ser uma linguagem fortemente tipada, é necessário definir os tipos das variáveis.
-
-```c
-int qtde; // Recebe valores inteiros
-float n1; // Recebe valores com ponto flutuante
-char nome[10]; // Recebe uma lista de caracteres
-```
-
-> O tipo `char` é definido sempre usando aspas simples.
->
-> É necessário sempre definir um `char` com mais espaço do que o necessário, pois o último valor armazenado é o terminador de string `\0`.
+É possível usar a função `sizeof()` para verificar o número de bytes usado para cada tipo primitivo.
 
 Os modificadores de tipo do C são: signed, unsigned, long e short.
 
-### Endereçamento de memória
-
-A memória RAM de um computador é uma sequência de bytes, a posição que é ocupada por um byte é o seu endereço.
-
-Cada variável de um programa ocupa um certo número de bytes consecutivos na memória do computador.
-
-A atribuição de endereços depende do SO, pode ser crescente ou decrescente.
-
-| Tipo   | Bytes   |
-| ------ | ------- |
-| char   | 1 byte  |
-| int    | 4 bytes |
-| float  | 4 bytes |
-| double | 8 bytes |
-| bool   | 1 byte  |
-| long   | 8 bytes |
-
-Em vetores é possível fazer um ponteiro apontar para o início de um vetor usando a seguinte sintaxe:
-
-```c
-p = v; // ponteiro p aponta para o início do vetor v
-```
-
-O comando acima equivale a:
-
-```c
-p = &v[0];
-```
-
-O nome do vetor aponta para o endereço do primeiro elemento do vetor.
-
-Para acessar o endereço de memória de uma variável é possível usar o formatador `%p` para imprimir o endereço:
-
-```c
-int numero = 10;
-printf("Endereço de memória da variável número é: %p\n", &numero);
-```
-
-Também é possível salvar o endereço de memória dentro de um ponteiro:
-
-```c
-int numero = 10;
-int *endereco = &numero;
-printf("Endereço de memória da variável número é: %p\n", endereco);
-```
-
-### Alocação dinâmica de memória
-
-A alocação dinâmica permite alocar e desalocar memória para novos arrays quando o programa está sendo executado e não apenas quando se está escrevendo o programa.
-
-A alocação dinâmica só pode ser feita através de ponteiros.
-
-O gerenciamento cuidadoso de alocação e liberação deve ser feito para evitar vazamento de memória ou corrupção de dados.
-
-A memória RAM é dividida em várias áreas:
-
-```mermaid
-flowchart TB
-
-A(Stack) --- B(Heap) --- C(Variáveis Globais e estáticas) --- D(Código do Programa)
-```
-
-A **Stack** é uma região usada para armazenar informações temporárias relacionadas a execução de funções, endereços de retorno, parâmetros de funções e variáveis locais.
-
-A **Heap** é a região mais dinâmica e flexível da memória, usada para alocar dados dinamicamente durante a execução do programa, como objetos, arrays e estruturas de dados.
-
-A região das **variáveis globais e estáticas** são inicializadas antes da execução do programa e mantêm seu valor durante toda a execução.
-
-O **código do programa** ou código executável é a região que contém instruções de máquina que compõem o programa em execução, geralmente é uma área apenas de leitura, visto que o código do programa não deve ser alterado durante a execução.
-
-O processo de alocação dinâmica acontece na memória Heap.
-
-#### Funções de gerenciamento de memória
-
-As funções de gerenciamento de memória fazem parte da biblioteca `stdlib`. Adicionar sua diretiva no início do programa para usa-lá.
-
-`malloc()`
-
-Função usada para alocar espaço em um bloco de bytes consecutivos, sua sintaxe é:
-
-```c
-int *v; // define o ponteiro
-v = (int*) malloc(quantidadePosicoes * numeroBytes);
-```
-
-> (int\*) é opcional
->
-> Os bytes alocados são inicializados sem conteúdo, podendo conter lixo.
-
-Como a alocação dinâmica só funciona através de ponteiros é necessário primeiro definir um.
-
-A função `malloc` recebe a quantidade de posições multiplicado pela quantidade de bytes de acordo com o tipo do ponteiro, por exemplo, se é um `int`, será 4 bytes, se fosse um `char` seria 1 byte.
-
-```c
-int *v;
-v = malloc(10 * 4);
-```
-
-Para definir dinamicamente o número de bytes de um tipo de dados é possível usar a função `sizeof()`.
-
-```c
-int *v;
-v = malloc(10 * sizeof(int)); // aloca espaço para 10 inteiros
-```
-
-`calloc`
-
-Similar a `malloc()`, mas inicializa todos os bytes alocados com zero, o que pode ser útil quando a memória deve ser inicializada.
-
-```c
-int *v; // define o ponteiro
-v = (int*) calloc(quantidadePosicoes, numeroBytes);
-```
-
-Diferente da `malloc` os valores são separados por vírgula e não multiplicados.
-
-```c
-int *v; // define o ponteiro
-v = (int*) calloc(10, sizeof(int));
-```
-
-`free`
-
-Sempre que um programa termina a memória é liberada, mas se for um programa grande é possível fazer a liberação da memória Heap de forma manual através da função `free()`, passando como parâmetro o ponteiro da memória a ser liberada. Além disso, é uma boa prática atribuir NULL ao ponteiro liberado.
-
-```c
-int *v; // define o ponteiro
-v = (int*) calloc(10, sizeof(int));
-free(v);
-v = NULL;
-```
-
-`realloc`
-
-Está função é usada para mudar o tamanho de um bloco de memória previamente alocado.
-
-Sua sintaxe é:
-
-```c
-int *v; // define o ponteiro
-v = (int*) realloc(vetor, quantidadePosicoes * numeroBytes);
-```
-
-Como parâmetros da função são passados o ponteiro que eu quero alterar e a quantidade de posições e número de bytes.
-
-```c
-int *v; // define o ponteiro
-v = (int*) realloc(v, 10 * sizeof(int));
-```
-
-Esquema da Alocação Dinâmica da Memória
-
-![Alocação dinâmica da memória](../media/alocacao_dinamica_memoria.jpeg)
-
 ### Void
 
-- Palavra reservada que pode ser usada para:
-  - Indicar que uma função não retorna nenhum valor.
-  - Indicar que uma função não recebe nenhum parâmetro.
-  - Permitir a criação de ponteiros genéricos.
-  - Criar funções sem argumentos e sem retorno.
+Palavra reservada que pode ser usada para:
+
+- Indicar que uma função não retorna nenhum valor.
+- Indicar que uma função não recebe nenhum parâmetro.
+- Permitir a criação de ponteiros genéricos.
+- Criar funções sem argumentos e sem retorno.
 
 ```c
 #include <stdio.h>
@@ -296,6 +102,70 @@ int main(void){
   return 0;
 }
 ```
+
+### Diretivas
+
+As **diretivas** são instruções, geralmente, definidas nas primeiras linhas do código fonte que tem o objetivo de modificar o texto fonte antes mesmo da sua compilação. Elas não são compiladas, sendo direcionadas ao pré-processador, que é executado pelo compilador antes da compilação propriamente dita.
+
+As diretivas iniciam com `#`.
+
+A diretiva `#include` permite incluir uma biblioteca.
+
+Exemplos:
+
+| Diretiva            | Função                         |
+| ------------------- | ------------------------------ |
+| #include <stdio.h>  | Funções de entrada e saída     |
+| #include <stdlib.h> | Funções de alocação de memória |
+| #include <math.h>   | Funções matemáticas            |
+| #include <string.h> | Funções de texto               |
+| #include <locale.h> | Funções de acentuação          |
+
+A biblioteca `<stdio.h>` é uma das principais a serem incluídas no código fonte. Ela da acesso as funções `scanf()` (input) que lê dados e armazena em variáveis especificadas e `printf()` (output) que escreve dados formatados.
+
+```c
+#include <stdio.h>
+
+int main(){
+  int n;
+  printf("Digite um numero: ");
+  scanf("%i", &n);
+}
+```
+
+A biblioteca `<locale.h>` permite acentuar letras e deve ser setada na função `main`.
+
+```c
+#include <stdio.h>
+#include <locale.h>
+
+int main(){
+  setlocale(LC_ALL, "Portuguese");
+  printf("Olá, mundo");
+}
+```
+
+A biblioteca `<stdlib.h>` contém funções responsáveis pela manipulação da alocação e desalocação de memória de forma dinâmica.
+
+```c
+#include <stdlib.h>
+
+int main(){
+  // alocação dinâmica de memória
+  int *v = (int*) malloc(10 * sizeof(int));
+}
+```
+
+### Constantes
+
+No topo dos arquivos do programa é possível definir constantes usando a diretiva `#define` seguida do seu nome e do seu valor. Diferente das variáveis não se usa o sinal de atribuição (=).
+
+```c
+#include <stdio.h>
+#define PI 3.1415 // Constante
+```
+
+> Se não inicializarmos as variáveis e ponteiros, elas podem guardar lixos de memória de outras inicializações.
 
 ### Operações de entrada e saída
 
@@ -393,6 +263,8 @@ int main(){
 
 Usa-se a função `fgets()` para ler entradas de dados do tipo String. A leitura é interrompida ao se encontrar a flag `\0` e não no espaço em branco como no `scanf()`.
 
+> É necessário sempre definir um `char` com mais espaço do que o necessário, pois o último valor armazenado é o terminador de string `\0`.
+
 ```c
 #include <stdio.h>
 
@@ -408,7 +280,7 @@ int main(){
 
 O tipo String nao pode ser comparado com outro usando os operadores relacionais, é necessário comparar posição por posição da String, por ser um vetor de caracteres, é possível usar um laço de repetição para isso.
 
-Para manipular strings usa-se a diretiva `string.h`, abaixo estão algumas das suas funções.
+Para manipular strings usa-se a biblioteca `string.h`, abaixo estão algumas das suas funções.
 
 | Função                         | Ação                                     |
 | ------------------------------ | ---------------------------------------- |
@@ -643,3 +515,162 @@ Quando a quantidade de linhas ou de linhas e colunas não são definidos, essa m
 // Compilado calcula automaticamente 10 posições
 int i[] = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
 ```
+
+### Endereçamento de memória
+
+Cada variável de um programa ocupa um certo número de bytes consecutivos na memória RAM do computador. 
+
+Um ponteiro é uma variável global que guarda o endereço de memória de outra variável. A atribuição de endereços depende do SO, pode ser crescente ou decrescente.
+
+O ponteiro é definido usando um `*` antes da variável:
+
+```c
+int main(){
+  int *p1 = NULL; // *p1 é um ponteiro
+}
+```
+
+Em vetores é possível fazer um ponteiro apontar para o início de um vetor usando a seguinte sintaxe:
+
+```c
+p = v; // ponteiro p aponta para o início do vetor v
+```
+
+O comando acima equivale a:
+
+```c
+p = &v[0];
+```
+
+O nome do vetor aponta para o endereço do primeiro elemento do vetor.
+
+Para acessar o endereço de memória de uma variável é possível usar o formatador `%p` para imprimir o endereço:
+
+```c
+int numero = 10;
+printf("Endereço de memória da variável número é: %p\n", &numero);
+```
+
+Também é possível salvar o endereço de memória dentro de um ponteiro:
+
+```c
+int numero = 10;
+int *endereco = &numero; // atribui o valor de numero no endereco de memoria enereco
+printf("Endereço de memória da variável número é: %p\n", endereco);
+```
+
+> Para incrementar conteúdo de ponteiros usa-se *p + 1
+
+Após declarar um ponteiro é possível referenciar o endereço ou o valor guardado. Usando `*p` (com asterisco) acessa o valor, usando somente `p` acessa o endereço na memória.
+
+Na **Passagem de parâmetro por valor**, é feito a cópia do valor que pode ser usado e alterado dentro de uma função que recebeu, sem afetar a variável da qual foi gerada.
+
+Na **Passagem de parâmetro por referência**, é passado uma referência (endereço de memória - ponteiro) para função, possibilitando alterar o conteúdo de uma variável que é externa a função invocada.
+
+### Alocação dinâmica de memória
+
+A alocação dinâmica permite alocar e desalocar memória para novos arrays quando o programa está sendo executado e não apenas quando se está escrevendo o programa.
+
+A alocação dinâmica só pode ser feita através de ponteiros.
+
+O gerenciamento cuidadoso de alocação e liberação deve ser feito para evitar vazamento de memória ou corrupção de dados.
+
+A memória RAM é dividida em várias áreas:
+
+```mermaid
+flowchart TB
+
+A(Stack) --- B(Heap) --- C(Variáveis Globais e estáticas) --- D(Código do Programa)
+```
+
+A **Stack** é uma região usada para armazenar informações temporárias relacionadas a execução de funções, endereços de retorno, parâmetros de funções e variáveis locais.
+
+A **Heap** é a região mais dinâmica e flexível da memória, usada para alocar dados dinamicamente durante a execução do programa, como objetos, arrays e estruturas de dados.
+
+A região das **variáveis globais e estáticas** são inicializadas antes da execução do programa e mantêm seu valor durante toda a execução.
+
+O **código do programa** ou código executável é a região que contém instruções de máquina que compõem o programa em execução, geralmente é uma área apenas de leitura, visto que o código do programa não deve ser alterado durante a execução.
+
+O processo de alocação dinâmica acontece na memória Heap.
+
+#### Funções de gerenciamento de memória
+
+As funções de gerenciamento de memória fazem parte da biblioteca `stdlib`. Adicionar sua diretiva no início do programa para usa-lá.
+
+`malloc()`
+
+Função usada para alocar espaço em um bloco de bytes consecutivos, sua sintaxe é:
+
+```c
+int *v; // define o ponteiro
+v = (int*) malloc(quantidadePosicoes * numeroBytes);
+```
+
+> (int\*) é opcional
+>
+> Os bytes alocados são inicializados sem conteúdo, podendo conter lixo.
+
+Como a alocação dinâmica só funciona através de ponteiros é necessário primeiro definir um.
+
+A função `malloc` recebe a quantidade de posições multiplicado pela quantidade de bytes de acordo com o tipo do ponteiro, por exemplo, se é um `int`, será 4 bytes, se fosse um `char` seria 1 byte.
+
+```c
+int *v;
+v = malloc(10 * 4);
+```
+
+Para definir dinamicamente o número de bytes de um tipo de dados é possível usar a função `sizeof()`, essa função mostra o número de bytes usado para cada tipo primitivo.
+
+```c
+int *v;
+v = malloc(10 * sizeof(int)); // aloca espaço para 10 inteiros
+```
+
+`calloc`
+
+Similar a `malloc()`, mas inicializa todos os bytes alocados com zero, o que pode ser útil quando a memória deve ser inicializada.
+
+```c
+int *v; // define o ponteiro
+v = (int*) calloc(quantidadePosicoes, numeroBytes);
+```
+
+Diferente da `malloc` os valores são separados por vírgula e não multiplicados.
+
+```c
+int *v; // define o ponteiro
+v = (int*) calloc(10, sizeof(int));
+```
+
+`free`
+
+Sempre que um programa termina a memória é liberada, mas se for um programa grande é possível fazer a liberação da memória Heap de forma manual através da função `free()`, passando como parâmetro o ponteiro da memória a ser liberada. Além disso, é uma boa prática atribuir NULL ao ponteiro liberado.
+
+```c
+int *v; // define o ponteiro
+v = (int*) calloc(10, sizeof(int));
+free(v);
+v = NULL;
+```
+
+`realloc`
+
+Está função é usada para mudar o tamanho de um bloco de memória previamente alocado.
+
+Sua sintaxe é:
+
+```c
+int *v; // define o ponteiro
+v = (int*) realloc(vetor, quantidadePosicoes * numeroBytes);
+```
+
+Como parâmetros da função são passados o ponteiro que eu quero alterar e a quantidade de posições e número de bytes.
+
+```c
+int *v; // define o ponteiro
+v = (int*) realloc(v, 10 * sizeof(int));
+```
+
+Esquema da Alocação Dinâmica da Memória
+
+![Alocação dinâmica da memória](../media/alocacao_dinamica_memoria.jpeg)

@@ -28,6 +28,4 @@ int main(){
   for (int i = 0; i < 5; i++) {
     printf("Endereço do elemento vh_cal[%d]: %p - Valor: %d\n", i, &vh_cal[i], vh_cal[i]);
   }
-
-
 }

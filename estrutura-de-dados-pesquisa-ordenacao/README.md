@@ -12,9 +12,11 @@ Ex: Sistema de fila de espera
 
 ## Pilha
 
-Estrutura de dados que segue o princípio LIFO (Last-In, First-Out), onde o primeiro elemento inserido é o último a sair.
+Estrutura de dados que segue o princípio LIFO (Last-In, First-Out), onde o primeiro elemento inserido é o último a sair. O processo de inserção e remoção sempre acontece na mesma extremidade, essa é chamada de topo.
 
-Ex: Operações aritméticas
+Ex: Operações aritméticas, chamadas de funções, etc.
+
+Quando uma pilha está vazia seu valor do topo é `-1`.
 
 ## Árvore
 
@@ -518,7 +520,7 @@ int i[] = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
 
 ### Endereçamento de memória
 
-Cada variável de um programa ocupa um certo número de bytes consecutivos na memória RAM do computador. 
+Cada variável de um programa ocupa um certo número de bytes consecutivos na memória RAM do computador.
 
 Um ponteiro é uma variável global que guarda o endereço de memória de outra variável. A atribuição de endereços depende do SO, pode ser crescente ou decrescente.
 
@@ -559,7 +561,7 @@ int *endereco = &numero; // atribui o valor de numero no endereco de memoria ene
 printf("Endereço de memória da variável número é: %p\n", endereco);
 ```
 
-> Para incrementar conteúdo de ponteiros usa-se *p + 1
+> Para incrementar conteúdo de ponteiros usa-se \*p + 1
 
 Após declarar um ponteiro é possível referenciar o endereço ou o valor guardado. Usando `*p` (com asterisco) acessa o valor, usando somente `p` acessa o endereço na memória.
 
@@ -571,7 +573,7 @@ Na **Passagem de parâmetro por referência**, é passado uma referência (ender
 
 A alocação dinâmica permite alocar e desalocar memória para novos arrays quando o programa está sendo executado e não apenas quando se está escrevendo o programa.
 
-A alocação dinâmica só pode ser feita através de ponteiros.
+A alocação dinâmica só pode ser feita através de ponteiro e acontece na memória Heap.
 
 O gerenciamento cuidadoso de alocação e liberação deve ser feito para evitar vazamento de memória ou corrupção de dados.
 
@@ -591,8 +593,6 @@ A região das **variáveis globais e estáticas** são inicializadas antes da ex
 
 O **código do programa** ou código executável é a região que contém instruções de máquina que compõem o programa em execução, geralmente é uma área apenas de leitura, visto que o código do programa não deve ser alterado durante a execução.
 
-O processo de alocação dinâmica acontece na memória Heap.
-
 #### Funções de gerenciamento de memória
 
 As funções de gerenciamento de memória fazem parte da biblioteca `stdlib`. Adicionar sua diretiva no início do programa para usa-lá.
@@ -606,7 +606,7 @@ int *v; // define o ponteiro
 v = (int*) malloc(quantidadePosicoes * numeroBytes);
 ```
 
-> (int\*) é opcional
+> (int*) é opcional
 >
 > Os bytes alocados são inicializados sem conteúdo, podendo conter lixo.
 

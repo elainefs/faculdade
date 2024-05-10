@@ -50,7 +50,7 @@ As tabelas associam-se entre si através de regras de relacionamentos, que consi
 
 É um software que possui recursos capazes de manipular as informações do banco de dados e interagir com o usuário.
 
-Um sistema de banco de dados possui quatro componentes: dados, hardware, software e usuários.
+Um sistema de banco de dados possui quatro componentes: dados, hardware, software e usuários. O SGBD faz parte do componente software.
 
 A abstração dos dados se da através do sistema que isola o usuário dos detalhes internos do banco de dados e promover a independência dos dados em relação às aplicações.
 
@@ -62,6 +62,16 @@ Para um sistema ser considerado um SGBD ele precisa ter as seguintes caracterís
 - Visões
 - Transações
 - Acesso automático
+
+Os bancos de dados funcionam no modelo ACID:
+
+**Atomicidade**: todas as manipulações devem ocorrer por completo, ou tudo da certo, ou nada acontece.
+
+**Consistência**: toda manipulação deve levar o banco de dados de um estado consistente para outro consistente.
+
+**Isolamento**: se eu tenho duas transações feitas ao mesmo tempo elas não podem interferir uma na outra.
+
+**Durabilidade**: todo dado que é alterado, manipulado tem que permanecer dessa forma enquanto eu desejar.
 
 Funções de um SGBD:
 
@@ -79,21 +89,25 @@ Classificação de um SGBD:
 - Localização
   - Centralizado ou Distribuído
 - Modelo de dados
-  - De rede
-  - Hierárquico
+  - Hierárquico ou em Árvore
+    - Uma informação por campo
+    - Relação pai-filho
+  - Em rede
+    - Resolve problemas do modelo hierárquico (redundância e duplicação)
+    - Várias associações por registro
   - Relacionais
+    - Estrutura de tabelas
   - Orientados a objetos
+    - Informações armazenadas na forma de objetos
   - Objetos-relacionais
+    - Combina os benefícios do modelo relacional com a capacidade de modelagem do modelo Orientado a Objetos
+    - Usa a linguagem de consulta OR, que é uma extensão da linguagem SQL
 
 Gerações de banco de dados:
 
 - 1ª geração: modelos hierárquicos e em rede
 - 2ª geração: surgimento do modelo relacional
 - 3ª geração: surgimento do modelo orientado a objetos
-
-O SGBD Objeto-Relacional combina os benefícios do modelo relacional com a capacidade de modelagem do modelo Orientado a Objetos.
-
-O SGBD Objeto-Relacional usa a linguagem de consulta OR, que é uma extensão da linguagem SQL.
 
 Edgar Frank Codd criou treze regras, enumeradas de 0 a 12, que um SGBD relacional precisa seguir.
 

@@ -53,7 +53,7 @@ Cada modelo prescreve um fluxo de trabalho, a maneira como os elementos se inter
 - Baseia-se no BDUF (Big Design Up Front, "design completo antes de tudo") que consiste em propor um trabalho detalhado de análise e design antes de produzir as primeiras linhas de código
 - Revisão ao final de cada fase para averiguar se é possível continuar ou não
 
-![Modelo em Cascata](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjSoqqzio1QPPJSAxUvqmq29ObMIus8TJZ8NpupgjTo6wsQReBjYPiAcHhHxbCZ4QHjJCw-mCJKfgxm691WPHSvDQJeyjT4ohb4vayJD4ZAGDSl1xtkol8vK6MD1w7Qb_bjoPy1skRKPe0/s1600/Fases+do+modelo+de+Desenvolvimento+Cl%C3%A1ssico.png)
+![Modelo em Cascata](../media/etapas_cascata.png)
 
 ### Prototipagem
 
@@ -90,7 +90,7 @@ Fases:
 - Geração da aplicação
 - Teste e entrega
 
-![Modelo RAD](../media/etaps_modelo_RAD.png)
+![Modelo RAD](../media/etapas_modelo_RAD.png)
 
 #### Evolucionário Espiral
 
@@ -113,7 +113,7 @@ Fases:
   - Desenvolvimento e validação: um modelo de desenvolvimento para o sistema é escolhido, e pode ser qualquer um dos modelos genéricos
   - Planejamento: o projeto é revisto e a próxima fase da espiral é planejada
 
-![Modelo Espiral](https://th.bing.com/th/id/R.7e975042e2fd2603802382b342f8e02c?rik=P4%2b7OJ%2fWHgfeCw&riu=http%3a%2f%2f4.bp.blogspot.com%2f-Ed9K8XszyqI%2fT7qFfwhg0_I%2fAAAAAAAAACY%2fS5xzIK-oUYY%2fs1600%2fmodelo%2bespiral.jpg&ehk=AwgepcRx%2fk6OP4P3AFYsVd7p26C%2fPfvGj4FqJjWl8wA%3d&risl=&pid=ImgRaw&r=0)
+![Modelo Espiral](../media/etapas_espiral.jpg)
 
 ## Modelos de Processos de Desenvolvimento de Software
 
@@ -122,9 +122,9 @@ Fases:
 ### Modelo Rational Unified Process (RUP)
 
 - Processo genérico moderno, derivado da UML
-- Reúne aspectos de modelos prescritivos
+- Reúne aspectos de modelos prescritivos e ágil, sendo uma abordagem híbrida
 - Apresenta como será a construção do sistema já na fase de implementação, mostrando o modelo do projeto e definindo o responsável em cada tarefa e como deverão ser executadas cada uma delas, por meio da descrição de metas
-- Perspectivas:
+- Perspectivas
   - **Perspectiva dinâmica** que mostra fases do modelo ao longo do tempo
   - **Perspectiva estática** que mostra atividades realizado no processo
   - **Perspectiva prática** que sugere boas práticas a serem usadas durante o processo
@@ -137,7 +137,7 @@ Fases:
   - **Intra-fase**: cada fase é iterativa aos resultados desenvolvidos incrementalmente
   - **Inter-fase**: o conjunto todo de fases pode ser executado incrementalmente
 
-![Modelo RUP](https://th.bing.com/th/id/OIP.ne7qoPo8sS0xBNKPR7KrZQHaEu?rs=1&pid=ImgDetMain)
+![Modelo RUP](../media/etapas_RUP.jpg)
 
 Características básicas do RUP
 

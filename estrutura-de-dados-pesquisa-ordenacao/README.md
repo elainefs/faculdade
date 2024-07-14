@@ -8,27 +8,122 @@ Não depende de linguagem de programação específica, mas sim da estrutura que
 
 Estrutura de dados que segue o princípio FIFO (First-In, First-Out), onde o primeiro elemento inserido é o primeiro a ser removido.
 
-Ex: Sistema de fila de espera
+Os elementos são inseridos no final da fila e removidos no início da fila.
+
+| Operação         | Função      |
+| ---------------- | ----------- |
+| Enfileirar       | `enqueue()` |
+| Desenfileirar    | `dequeue()` |
+| Frente da fila   | `front()`   |
+| Situação da fila | `isEmpty()` |
+
+- Filas estáticas: implementadas com vetores
+- Filas dinâmicas: implementadas com listas encadeadas e ponteiros
+
+Ex: Sistema de fila de espera, impressões, escalonamento de tarefas em SO, etc.
 
 ## Pilha
 
 Estrutura de dados que segue o princípio LIFO (Last-In, First-Out), onde o primeiro elemento inserido é o último a sair. O processo de inserção e remoção sempre acontece na mesma extremidade, essa é chamada de topo.
 
-Ex: Operações aritméticas, chamadas de funções, etc.
+| Operação       | Função   |
+| -------------- | -------- |
+| Inicialização  | `init()` |
+| Acesso ao Topo | `top()`  |
+| Empilhar       | `push()` |
+| Desempilhar    | `pop()`  |
+| Situação       | `isFull` |
 
 Quando uma pilha está vazia seu valor do topo é `-1`.
 
+Ex: Operações aritméticas, chamadas de funções, histórico de navegação em browser, etc.
+
 ## Árvore
 
-Estrutura de dados hierárquica composta por nós, onde cada nós possui um valor zero ou mais nós filhos, que estão conectados por arestas. O nós raiz é de onde todos os outros nós são acessíveis.
+Estrutura de dados hierárquica composta por nós, onde cada nó pai possui um ou mais nós filhos que estão conectados por arestas. O nós raiz é de onde todos os outros nós são acessíveis. É um tipo especifico de grafo.
 
-Ex: Sistema de diretórios em um SO
+- Características:
+
+  - Conexo: existe um caminho entre quaisquer dois vértice
+  - Acíclico: não possui ciclos
+  - Grau dos vértices: número de filhos
+  - Caminhos: existe um único caminho entre dois vértices
+  - Altura: distância do nó raiz até o nó folha
+  - Profundidade: distância do nó folha até outro nó
+
+- Árvore Binária
+  - Cada nó possui no máximo dois filhos
+  - É estritamente binária quando todos os nós filhos estão no mesmo nível
+  - Está balanceada quando para cada nó, as alturas de suas sub-árvores diferem em no máximo 1
+- Árvore Binária de Busca (BST)
+  - Todo valor à esquerda é menor que seu nó pai
+  - Toda valor à direita é maior que seu nó pai
+- Árvore AVL
+  - Tipo especial de árvore de busca que possui a propriedade de balanceamento
+- Árvore B+
+  - Otimizada para armazenamento recuperação de dados em disco
+  - Vários nós filhos por nó
+  - Armazena dados em blocos de memória
+- Árvore Geral
+  - Possui um número arbitrário de filhos, ou seja, pode ter zero ou mais filhos
+- Árvore N-árias
+  - Pode ter um número N de filhos, em que N é um número inteiro pré-definido.
+  - Combina as características das árvores binárias e gerais
+
+Ex: Sistema de diretórios em um SO, etc.
 
 ## Grafo
 
 Estrutura de dados que consiste em um conjunto de vértices (ou nós) e um conjunto de arestas que conectam esses vértices. Os grafos podem ser direcionados ou não direcionados.
 
-Ex: Algoritmos de busca e otimização
+Direcionado, Orientado Dígrafo: quando há um sentido na direção da aresta
+
+Não direcionado, Não orientado, Não dirigido: quando não há um sentido na direção da aresta
+
+- Cíclico ou Acíclico
+- Conexo ou Desconexo
+
+Tipos de Grafos
+
+- Trivial
+  - Um grafo que não possui arestas.
+- Simples
+  - Não direcionado, sem laços, sem arestas paralelas.
+- Multigrafo
+  - Grafo simples que permite arestas paralelas
+- Pseudografo
+  - Um multigrafo que permite laços.
+- Bipartido
+  - Um grafo em que os vértices podem ser divididos em conjuntos e as arestas apenas ligam vértices de conjuntos diferentes.
+- Completo
+  - Um grafo simples onde todo vértice está conectado a todos os outros.
+- Regular
+  - Todos os vértices têm o mesmo grau.
+- Isomorfos
+  - Podem ter representações diferentes, mas são essencialmente o mesmo grafo. Na teoria, quaisquer dois grafos isomorfos são considerados o mesmo grafo.
+- Euleriano
+  - Um grafo em que você pode passar por todas as arestas somente uma vez e voltar para o ponto de partida.
+- Semi-Euleriano
+  - Você pode passar por todas as arestas, mas não volta ao ponto de partida.
+- Hamiltoniano
+  - Grafo que permite passar por todos os seus vértices sem repetir nenhum.
+- Ponderado ou Valorado
+  - Tipo de grafo em que suas arestas possuem “pesos”.
+
+Representações
+
+- Matriz de adjacência
+- Lista de adjacência
+
+Algoritmos
+
+- Algoritmo de Dijkstra: Usado para encontrar o caminho de menor custo entre todos os vértices de um grafo ponderado de pesos positivos, muito utilizado em dispositivos GPS.
+
+- Algoritmo de Bellman-Ford: Calcula o menor caminho de um nó de origem até outro nó, ao contrário do algoritmo de Djikstra, não impõe restrição sobre o sinal dos pesos das arestas, portanto ele aceita pesos negativos.
+  - Etapas: Inicialização, Relaxamento e Verificação dos ciclos negativos
+  - Se o grafo contiver ciclos com peso total negativo, não haverá solução
+
+Ex: Algoritmos de busca e otimização, GPS, etc.
 
 ## Linguagem C
 
@@ -518,11 +613,11 @@ Quando a quantidade de linhas ou de linhas e colunas não são definidos, essa m
 int i[] = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
 ```
 
-### Endereçamento de memória
+### Ponteiros
 
-Cada variável de um programa ocupa um certo número de bytes consecutivos na memória RAM do computador.
+Cada variável de um programa ocupa um certo número de bytes consecutivos na memória RAM do computador. Um ponteiro precisa sempre de 8 bytes.
 
-Um ponteiro é uma variável global que guarda o endereço de memória de outra variável. A atribuição de endereços depende do SO, pode ser crescente ou decrescente.
+Um ponteiro é uma variável global que guarda o **endereço de memória** de outra variável. A atribuição de endereços depende do SO, pode ser crescente ou decrescente.
 
 O ponteiro é definido usando um `*` antes da variável:
 
@@ -597,7 +692,7 @@ O **código do programa** ou código executável é a região que contém instru
 
 As funções de gerenciamento de memória fazem parte da biblioteca `stdlib`. Adicionar sua diretiva no início do programa para usa-lá.
 
-`malloc()`
+##### `malloc()`
 
 Função usada para alocar espaço em um bloco de bytes consecutivos, sua sintaxe é:
 
@@ -606,7 +701,7 @@ int *v; // define o ponteiro
 v = (int*) malloc(quantidadePosicoes * numeroBytes);
 ```
 
-> (int*) é opcional
+> (int\*) é opcional
 >
 > Os bytes alocados são inicializados sem conteúdo, podendo conter lixo.
 
@@ -626,7 +721,7 @@ int *v;
 v = malloc(10 * sizeof(int)); // aloca espaço para 10 inteiros
 ```
 
-`calloc`
+##### `calloc`
 
 Similar a `malloc()`, mas inicializa todos os bytes alocados com zero, o que pode ser útil quando a memória deve ser inicializada.
 
@@ -642,7 +737,7 @@ int *v; // define o ponteiro
 v = (int*) calloc(10, sizeof(int));
 ```
 
-`free`
+##### `free`
 
 Sempre que um programa termina a memória é liberada, mas se for um programa grande é possível fazer a liberação da memória Heap de forma manual através da função `free()`, passando como parâmetro o ponteiro da memória a ser liberada. Além disso, é uma boa prática atribuir NULL ao ponteiro liberado.
 
@@ -653,7 +748,7 @@ free(v);
 v = NULL;
 ```
 
-`realloc`
+##### `realloc`
 
 Está função é usada para mudar o tamanho de um bloco de memória previamente alocado.
 
@@ -674,3 +769,140 @@ v = (int*) realloc(v, 10 * sizeof(int));
 Esquema da Alocação Dinâmica da Memória
 
 ![Alocação dinâmica da memória](../media/alocacao_dinamica_memoria.jpeg)
+
+### `typedef`
+
+O `typedef` funciona como um apelido para um dado já existente. Ele não criar um novo tipo.
+
+Essa renomeação facilita a organização e o entendimento do código.
+
+Sua sintaxe é:
+
+```
+typedef <nome do tipo de dado> <novo nome>
+```
+
+Exemplo:
+
+```c
+typedef float medidas;
+
+// Uso
+medidas peso, altura;
+```
+
+Agora é possível usar o termo `medidas` no lugar de `float`.
+
+### `struct`
+
+O `struct` é uma estrutura de dados que pode ser linear ou não linear, podem ter tamanhos estáticos ou dinâmicos e podem conter dados homogêneos ou heterogêneos.
+
+Cada membro da estrutura é chamado de membro ou campo.
+
+Em resumo, um struct é um tipo de dado que permite ao programador combinar diferentes tipos de dados sob um único nome.
+
+Devem ser declaradas antes de todas as funções para serem de escopo global ou dentro de um função para ter escopo local.
+
+Sua sintaxe é:
+
+```
+struct NomeDaEstrutura {
+  Tipo1 Campo1;
+  Tipo2 Campo2;
+};
+```
+
+É possível usar o `typedef` junto com o `struct`
+
+```
+typedef struct {
+  Tipo1 Campo1;
+  Tipo2 Campo2;
+} NomeDaEstrutura;
+```
+
+Exemplos:
+
+```c
+struct Ponto {
+  float x;
+  float y;
+};
+```
+
+Após declarar a `struct` é possível criar variáveis do tipo `struct Ponto` para armazenar valores:
+
+```c
+struct Ponto pto1;
+struct Ponto pto2;
+```
+
+Também é possível declarar as variáveis no momento da definição da estrutura:
+
+```c
+struct Ponto {
+  float x;
+  float y;
+}pto1, pto2;
+```
+
+Para acessar os membros de uma `struct` pode se usar o ponto (`.`) se o membro da estrutura não for um ponteiro, mas se for um ponteiro deve-se usar a seta (`->`).
+
+### Tipos Abstratos de Dados (TAD)
+
+São estruturas e funções que permitem dividir o código em especificações (o que faz) e implementações (como faz).
+
+O TAD é formado por um par de arquivos:
+
+- `.c` - Arquivo fonte com o conteúdo oculto do usuário (implementação)
+- `.h` - Arquivo cabeçalho com a declaração das funções (especificação)
+
+Exemplos:
+
+```c
+// Especificação
+int soma(int a, int b);
+
+// Implementação
+soma = a + b;
+```
+
+### Ordenação
+
+Algoritmos de Ordenação
+
+- Bubble Sort
+  - Ordenação simples
+  - Pouco eficiente
+- Insertion Sort
+  - Ordenação por inserção
+- Merge Sort
+  - Ordenação por Intercalação
+- Quick Sort
+  - Ordenação rápida
+- Heap Sort
+  - Usa árvore binária
+- Counting Sort
+  - Eficiente para ordenar números inteiros dentro de um intervalo limitado
+- Radix Sort
+  - Ordenação por dígito menos significativo
+
+### Pesquisa
+
+- Pesquisa sequencial
+  - Método simples, mas lento
+- Pesquisa binária
+  - Mais rápida, mas os dados precisam estar ordenados
+- Árvore de pesquisa
+- Pesquisa digital
+- Hashing
+
+### Notação Big O
+
+| Notação  | Nome        |
+| -------- | ----------- |
+| O(1)     | Constante   |
+| O(log n) | Logarítmica |
+| O(n)     | Linear      |
+| O(n²)    | Quadrática  |
+| O(n!)    | Fatorial    |

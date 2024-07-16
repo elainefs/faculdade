@@ -906,3 +906,18 @@ Algoritmos de Ordenação
 | O(n)     | Linear      |
 | O(n²)    | Quadrática  |
 | O(n!)    | Fatorial    |
+
+- n: Número de elementos no conjunto de dados.
+- k: Tamanho da faixa de valores (máximo - mínimo) + 1.
+
+### Notação Big O para Algoritmos de Ordenação
+
+| Algoritmo      | Melhor Caso | Caso Médio | Pior Caso             | Espaço O | Observações                                                                                 |
+| -------------- | ----------- | ---------- | --------------------- | -------- | ------------------------------------------------------------------------------------------- |
+| Bubble Sort    | O(n)        | O(n²)      | O(n²)                 | O(1)     | Simples, ineficiente para grandes conjuntos de dados.                                       |
+| Insertion Sort | O(n)        | O(n²)      | O(n²)                 | O(1)     | Eficiente para pequenos conjuntos de dados, já ordenados ou quase ordenados.                |
+| Merge Sort     | O(n log n)  | O(n log n) | O(n log n)            | O(n)     | Divide e conquista, eficiente para grandes conjuntos de dados, mas exige espaço auxiliar.   |
+| Quick Sort     | O(n log n)  | O(n log n) | O(n²) (com pivô ruim) | O(log n) | Divide e conquista, rápido na maioria dos casos, mas pior caso O(n²) com pivô ruim.         |
+| Heap Sort      | O(n log n)  | O(n log n) | O(n log n)            | O(1)     | Eficiente e in-place (não requer espaço auxiliar), mas mais complexo que outros algoritmos. |
+| Counting Sort  | O(n + k)    | O(n + k)   | O(n + k)              | O(k)     | Eficiente para quando a faixa de valores é limitada e conhecida.                            |
+| Radix Sort     | O(n k)      | O(n k)     | O(n k)                | O(k)     | Eficiente para quando os dados podem ser representados em bases numéricas diferentes.       |

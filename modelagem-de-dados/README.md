@@ -37,7 +37,7 @@ As tabelas associam-se entre si através de regras de relacionamentos, que consi
 >
 > **Informação**: fato útil extraído da organização e processamento de um dado e que permite interpretações e fundamentação de decisões.
 
-## Vantagens do banco de dados
+### Vantagens do banco de dados
 
 - Redução ou eliminação de redundâncias
 - Eliminação de inconsistências
@@ -230,3 +230,23 @@ Deve estar na 2FN e nenhum atributo não-chave é transitivamente dependente da 
 A **dependência transitiva ou indireta** ocorre quando um atributo, além de depender da chave primária, depende de outro atributo ou conjunto de atributos da tabela.
 
 Ocorre quando Y depende de X, e Z depende de Y, logo, Z também depende de X. A sua notação é: **X -> Y -> Z**.
+
+## Diagrama de Entidade-Relacionamento
+
+O modelo conceitual é representado através de diagramas que representam as relações entre as entidades.
+
+- Modelo desenvolvido por Peter Chen em 1976
+- Prove um alto nível de abstração ao usuário
+- Facilita a construção de um esquema de BD
+
+```mermaid
+flowchart LR
+
+A(Funcionário) --(1,1)--- B{Possui} --(0,N)--- C(Dependente)
+```
+
+O relacionamento é representado por um losango, ligado por linhas aos retângulos que representam as entidade que participam do relacionamento.
+
+O grau de relacionamento indica quantos conjuntos de entidades estão envolvidos em determinado relacionamento.
+
+O relacionamento com grau > 2 só é justificável se não puder ser decomposto em relacionamentos com graus menores.

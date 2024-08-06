@@ -34,7 +34,7 @@ Exemplo: O conjunto vazio, escrito como ∅, é um conjunto especial com zero el
 
 Exemplo: Em um contexto de alunos de uma escola, o conjunto universal poderia ser o conjunto de todos os alunos da escola.
 
-## Lógica Matemática:
+## Lógica Matemática
 
 **Proposições Simples**: Frases que não podem ser decompostas em outras frases lógicas mais simples. Exemplos: "Está chovendo", "O sol é quente".
 
@@ -52,7 +52,11 @@ Exemplo: Em um contexto de alunos de uma escola, o conjunto universal poderia se
 - Condicional fraco (⊃): Similar à implicação, mas a segunda proposição pode ser falsa sem afetar a verdade da composta. Exemplo: "Se está chovendo ⊃ O chão está molhado" significa que se está chovendo, o chão pode ou não estar molhado.
 - Bicondicional fraco (⊊): Similar à equivalência, mas ambas as proposições podem ser falsas sem afetar a verdade da composta. Exemplo: "Está chovendo ⊊ O chão está molhado" significa que se está chovendo, o chão pode ou não estar molhado, e vice-versa.
 
+### Tabela Verdade
+
 ![Tabela Verdade](../midia/tabela-verdade.png)
+
+Da esquerda para direita: Conjunção, Disjunção, Disjunção Exclusiva, Implicação, Equivalência e Negação.
 
 Ordem de precedência das operações
 
@@ -63,7 +67,7 @@ Ordem de precedência das operações
 | 3ª    | `v`,`⊕`  |
 | 4ª    | `→`, `↔` |
 
-Duas preposições são ditas logicamente equivalentes quando possuem os mesmos valores verdadeiros.
+> Duas preposições são ditas logicamente equivalentes quando possuem os mesmos valores verdadeiros.
 
 ## Produto Cartesiano
 
@@ -77,4 +81,66 @@ B x A = {(1, 1), (1, 2), (1, 3), (2, 1), (2, 2), (2, 3)}
 
 ## Relação Binária
 
-A relação binária é uma relação que estabelece uma conexão matemática entre dois conjuntos. Ela define quais elementos do primeiro conjunto (chamado de domínio) estão relacionados a quais elementos do segundo conjunto (chamado de codomínio).
+A relação binária é a relação estabelecida pelos pares.
+
+Ex.: Considerando os conjuntos A = {2, 3, 4} e B = {2, 3, 4, 5, 6}. O produto cartesiano de A x B = {(x, y); x ∈ A e y ∈ B} seria:
+
+A x B = {(2,2), (2,3), (2,4), (2,5), (2,6), (3,2),(3,3),(3,4), (3,5), (3,6), (4,2), (4,3), (4,4), (4,5), (4,6)}
+
+Se estabelecer a seguinte relação para os pares: x é divisor de y, teríamos:
+
+R = {(2,2), (2,4), (2,6), (3,3), (3,6), (4,4)}
+
+Este conjunto é chamado de relação binária de A em B.
+
+A = conjunto de partida da relação R
+
+B = conjunto de chegada ou contradomínio da relação R
+
+É comum a representação da relação por meio de flechas.
+
+![Relação Binária](../midia/relacao_binaria.png)
+
+### Domínio
+
+Chama-se domínio de R o conjunto D de todos os primeiros elementos dos pares ordenados pertencente a R, ou seja, os elementos vindos do conjunto A.
+
+D ⊂ A, com base no exemplo anterior o domínio seria:
+
+D = {2, 3, 4}
+
+### Imagem
+
+Chama-se imagem de R o conjunto Im de todos os segundos elementos dos pares ordenados pertencente a R, ou seja, ou elementos vindos do conjunto B.
+
+Im ⊂ B, com base no exemplo anterior a imagem seria:
+
+Im = {2, 3, 4, 6}
+
+### Relação inversa
+
+Na relação inversa trocamos as posições dos elementos x e y para y e x.
+
+Sendo assim, a relação inversa de R = {(2,2), (2,4), (2,6), (3,3), (3,6), (4,4)} será:
+
+R⁻¹ = {(2,2), (4,2), (6,2), (3,3), (6,3), (4,4)}
+
+## Funções
+
+Uma função `f` é uma regra (relação) que associa a cada elemento x ∈ A um único elemento y ∈ B. O conjunto A é chamado de domínio da função `f`, e às vezes denotamos por `Df`, é o conjunto B é chamado de contradomínio da função `f`.
+
+Denotação: `f: A -> B`
+
+Para afirmar que um determinado x ∈ A está associado a um certo y ∈ B através da função `f`, denotamos por `f(x) = y`.
+
+### Sequências
+
+Uma sequência finita é uma função `f: Xn -> R` que associa cada elemento de `Xn` a um número real.
+
+Ex.:
+
+Xn = {1, 2, 3...} então f(1) = a1, f(2) = a2, f(3) = a3.
+
+Se existir uma função que associa cada número dos naturais a um número real dizemos que a sequência é infinita.
+
+O termo geral da sequência é an.

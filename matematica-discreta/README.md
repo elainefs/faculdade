@@ -52,7 +52,7 @@ Exemplo: Em um contexto de alunos de uma escola, o conjunto universal poderia se
 - Condicional fraco (⊃): Similar à implicação, mas a segunda proposição pode ser falsa sem afetar a verdade da composta. Exemplo: "Se está chovendo ⊃ O chão está molhado" significa que se está chovendo, o chão pode ou não estar molhado.
 - Bicondicional fraco (⊊): Similar à equivalência, mas ambas as proposições podem ser falsas sem afetar a verdade da composta. Exemplo: "Está chovendo ⊊ O chão está molhado" significa que se está chovendo, o chão pode ou não estar molhado, e vice-versa.
 
-![Tabela Verdade](../media/tabela-verdade.png)
+![Tabela Verdade](../midia/tabela-verdade.png)
 
 Ordem de precedência das operações
 

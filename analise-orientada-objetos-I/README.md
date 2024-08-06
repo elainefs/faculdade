@@ -53,7 +53,7 @@ Cada modelo prescreve um fluxo de trabalho, a maneira como os elementos se inter
 - Baseia-se no BDUF (Big Design Up Front, "design completo antes de tudo") que consiste em propor um trabalho detalhado de análise e design antes de produzir as primeiras linhas de código
 - Revisão ao final de cada fase para averiguar se é possível continuar ou não
 
-![Modelo em Cascata](../media/etapas_cascata.png)
+![Modelo em Cascata](../midia/etapas_cascata.png)
 
 ### Prototipagem
 
@@ -61,7 +61,7 @@ Cada modelo prescreve um fluxo de trabalho, a maneira como os elementos se inter
 - Sem detalhamento dos requisitos de entrada, processamento e saída
 - Indicado quando há necessidade de solução de software, mas não é possível detalhar os requisitos, onde o protótipo servirá justamente para esse detalhamento
 
-![Modelo de Prototipagem](../media/etapas_prototipagem.png)
+![Modelo de Prototipagem](../midia/etapas_prototipagem.png)
 
 ### Evolucionário
 
@@ -74,7 +74,7 @@ Cada modelo prescreve um fluxo de trabalho, a maneira como os elementos se inter
 - Cada sequência produz um incremento que possam ser entregues ao cliente
 - O primeiro incremento é chamado de núcleo do produto
 
-![Modelo Incremental](../media/etapas_modelo_incremental.png)
+![Modelo Incremental](../midia/etapas_modelo_incremental.png)
 
 #### Modelo RAD (Rapid Application Development)
 
@@ -90,7 +90,7 @@ Fases:
 - Geração da aplicação
 - Teste e entrega
 
-![Modelo RAD](../media/etapas_modelo_RAD.png)
+![Modelo RAD](../midia/etapas_modelo_RAD.png)
 
 #### Evolucionário Espiral
 
@@ -113,7 +113,7 @@ Fases:
   - Desenvolvimento e validação: um modelo de desenvolvimento para o sistema é escolhido, e pode ser qualquer um dos modelos genéricos
   - Planejamento: o projeto é revisto e a próxima fase da espiral é planejada
 
-![Modelo Espiral](../media/etapas_espiral.jpg)
+![Modelo Espiral](../midia/etapas_espiral.jpg)
 
 ## Modelos de Processos de Desenvolvimento de Software
 
@@ -137,7 +137,7 @@ Fases:
   - **Intra-fase**: cada fase é iterativa aos resultados desenvolvidos incrementalmente
   - **Inter-fase**: o conjunto todo de fases pode ser executado incrementalmente
 
-![Modelo RUP](../media/etapas_RUP.jpg)
+![Modelo RUP](../midia/etapas_RUP.jpg)
 
 Características básicas do RUP
 
@@ -372,10 +372,10 @@ Tipos de interação
 
 - Inclusão: quando um caso precisa de outro
   - `<<include>>`
-    ![Interação de Inclusão](../media/casos_de_uso_include.png)
+    ![Interação de Inclusão](../midia/casos_de_uso_include.png)
 - Extensão: quando um caso de uso pode opcionalmente utilizar um outro
   - `<<extend>>`
-    ![Interação de Extensão](../media/casos_de_uso_extend.png)
+    ![Interação de Extensão](../midia/casos_de_uso_extend.png)
 
 A especificação de um caso de uso inclui:
 

@@ -768,7 +768,7 @@ v = (int*) realloc(v, 10 * sizeof(int));
 
 Esquema da Alocação Dinâmica da Memória
 
-![Alocação dinâmica da memória](../media/alocacao_dinamica_memoria.jpeg)
+![Alocação dinâmica da memória](../midia/alocacao_dinamica_memoria.jpeg)
 
 ### `typedef`
 

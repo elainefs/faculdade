@@ -41,6 +41,10 @@ Um sistema de regras de manipulação de dados é dito Turing-Completo, ou compu
 
 **Tese de Church-Turing:** qualquer função cujos valores podem ser calculados por um algoritmo pode ser calculado por uma máquina de Turing. Se qualquer computador do mundo real pode simular uma máquina de Turing, é Turing equivalente a uma máquina de Turing. Qualquer linguagem de programação de propósito geral é suficiente para expressar qualquer algoritmo.
 
+O **tamanho da entrada** depende do estudo que está sendo realizado.
+
+O **tempo de execução** de um algoritmo é a soma do tempo de execução de cada instrução. É o tempo necessário para executar as instruções (passos) para uma determinada entrada.
+
 ### Máquina de Turing
 
 - Alan Turing, 1936
@@ -58,3 +62,19 @@ Complexidade de espaço: representa a quantidade de memória (numa unidade qualq
 ## Complexidade de pior e melhor caso
 
 A busca sequencial possui complexidade de tempo constante (1) no melhor caso, quando o elemento procurado é o primeiro da lista e linear (n) no pior caso, quando o elemento procurado não está contido na lista ou é o último da lista.
+
+Insertion-sort:
+
+- Melhor caso - dados já estão ordenados
+- Pior caso - dados estão em ordem inversa
+
+Funções de taxa de crescimento
+
+- Tempo constante: O(1) (raro)
+- Tempo sublinear (log(n)): muito rápido (ótimo)
+- Tempo linear: (O(n)): muito rápido (ótimo)
+- Tempo nlogn: Comum em algoritmos de divisão e conquista.
+- Tempo polinomial nk : Freqüentemente de baixa ordem (k ≤ 10), considerado eficiente.
+- Tempo exponencial: 2n , n!, nn considerados intratáveis
+
+> Um crescimento quadrático é considerado pior que um crescimento linear.

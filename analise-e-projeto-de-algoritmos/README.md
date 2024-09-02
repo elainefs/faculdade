@@ -96,22 +96,28 @@ Usada para representar a complexidade de tempo e espaço.
 
 ## Funções de taxa de crescimento
 
-- Tempo constante: O(1) (raro)
-- Tempo sublinear (logarítmica) (log(n)): muito rápido (ótimo)
-  - Funções logarítmicas: Algoritmos com essa complexidade são muito eficientes, mesmo para grandes valores de n.
-- Tempo linear: (O(n)): muito rápido (ótimo)
-- Tempo nlogn (logarítmica linear): Comum em algoritmos de divisão e conquista.
-  - Funções lineares e quase lineares: Algoritmos com essa complexidade são considerados eficientes para a maioria das aplicações.
-- Tempo polinomial (quadrática e cúbica) n^k : Frequentemente de baixa ordem (k ≤ 10), considerado eficiente.
-  - Funções polinomiais (quadrática, cúbica): Algoritmos com essa complexidade podem ser eficientes para valores moderados de n, mas podem se tornar lentos para valores muito grandes.
-- Tempo exponencial: 2^n , n!, nn considerados intratáveis
-  - Funções exponenciais: Algoritmos com essa complexidade são geralmente inviáveis para problemas de grande escala, pois o tempo de execução cresce explosivamente com o aumento de n.
+- O(1): representa uma complexidade constante, onde o tempo de execução não depende do tamanho da entrada. Extremamente eficiente.
+- O(log2(n)): representa uma complexidade logarítmica ou sublinear, onde o tempo de execução cresce logaritmicamente com o tamanho da entrada. Muito eficiente.
+- O(n): representa uma complexidade linear, onde o tempo de execução cresce linearmente com o tamanho da entrada. Eficiente.
+- O(nlog2(n)): representa uma complexidade quase linear ou linearitmico, onde o tempo de execução cresce quase igual a complexidade linear, mas um pouco mais rápido. Eficiente.
+- O(n²): representa uma complexidade quadrática, onde o tempo de execução cresce proporcional ao quadrado do tamanho da entrada. Eficiente para volumes pequenos.
+- O(n³): representa uma complexidade cúbica, onde o tempo de execução cresce proporcional ao cubo do tamanho da entrada. Eficiente para volumes pequenos.
+- O(2^n): representa uma complexidade exponencial, onde o tempo de execução cresce exponencialmente com o tamanho da entrada. Inviável para grande escala.
+- O(n!): representa uma complexidade fatorial, onde o tempo de execução cresce muito rapidamente. Inviável para grande escala.
 
 Ao medir o número de instruções necessárias para cada algoritmo, devem ser consideradas estruturas de decisão e de repetição. As estruturas de repetição aninhadas são as maiores responsáveis pelo aumento de instruções.
 
-- laços representam linear
-- constantes não possuem laços
-- laços encadeados representam log
+| Big O       | Característica                                                                                    | Exemplo                             |
+| ----------- | ------------------------------------------------------------------------------------------------- | ----------------------------------- |
+| O(1)        | Acesso direto ao elemento                                                                         | Operações aritméticas simples       |
+| O(log2(n))  | Um único loop que divide o problema pela metade em cada interação                                 | Busca Binária                       |
+| O(n)        | Um único loop que percorre a entrada uma vez                                                      | Percorrer lista                     |
+| O(nlog2(n)) | Um loop aninhado, onde o número de iterações do segundo loop é logarítmico em relação a entrada   | Merge Sort                          |
+| O(n²)       | Dois loops aninhados, onde o número de iterações é proporcional ao quadrado do tamanho da entrada | Bubble Sort                         |
+| O(n³)       | Três loops aninhados, onde o número de iterações é proporcional ao cubo do tamanho da entrada     | Análise de tripletas de um conjunto |
+| O(2^n)      | Loop recursivo que explora todas as combinações                                                   | Força bruta                         |
+| O(3^n)      | Loop recursivo que explora todas as combinações, mas com fator de ramificação maior               | Força bruta                         |
+| O(n!)       | Permutação de um conjunto de elementos                                                            | Permutações                         |
 
 ## Polinômios
 

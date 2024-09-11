@@ -1,3 +1,8 @@
+# Compiler files
+*.class
+*.jar
+*.war
+
 # Prerequisites
 *.d
 
@@ -51,5 +56,43 @@ Module.symvers
 Mkfile.old
 dkms.conf
 
-# Visual Studio Code
-.vscode
+# STS 
+.apt_generated
+.classpath
+.factorypath
+.project
+.settings
+.springBeans
+.sts4-cache
+
+# IntelliJ IDEA 
+.idea
+*.iws
+*.iml
+*.ipr
+
+# NetBeans 
+/nbproject/private/
+/nbbuild/
+/dist/
+/nbdist/
+/.nb-gradle/
+build/
+!**/src/main/**/build/
+!**/src/test/**/build/
+
+# VS Code
+.vscode/
+
+# Backup
+*.bak
+*.swp
+
+# Other
+.DS_Store
+
+HELP.md
+target/
+!.mvn/wrapper/maven-wrapper.jar
+!**/src/main/**/target/
+!**/src/test/**/target/

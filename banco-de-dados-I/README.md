@@ -2,7 +2,7 @@
 
 > Outros conceitos sobre banco de dados podem ser vistos nas anotações de [Modelagem de Dados](../modelagem-de-dados/README.md)
 
-> SGDB Utilizado: SQL Server
+> SGBD Utilizado: SQL Server
 
 ## Structured Query Language (SQL)
 

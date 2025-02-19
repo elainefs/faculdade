@@ -2,6 +2,8 @@
 
 > Outros conceitos sobre banco de dados podem ser vistos nas anotações de [Modelagem de Dados](../modelagem-de-dados/README.md)
 
+> SGDB Utilizado: SQL Server
+
 ## Structured Query Language (SQL)
 
 É a linguagem padrão para manipulação de dados em bancos de dados relacionais criada pela IBM.
